@@ -285,7 +285,7 @@ $tables = $mysqli->query($table_query);
       </div>
       <!-- /.sidebar -->
     </aside>
-<--
+
     Content Wrapper. Contains page content
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
