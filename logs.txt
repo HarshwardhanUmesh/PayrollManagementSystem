@@ -1,0 +1,148 @@
+[Timestamp: 2023-09-29 12:49:06]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'id'<\b> table.
+<b>Data<\b>: { '134', 'Yuvraj', }
+
+[Timestamp: 2023-10-05 14:52:35]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'id'<\b> table.
+<b>Data<\b>: { '156', 'Omkar', }
+
+[Timestamp: 2023-10-05 15:26:31]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'login'<\b> table.
+<b>Data<\b>: { 'humnesubodh@gmail.com', 'Lomdu@502', '56', }
+
+[Timestamp: 2023-10-05 15:29:03]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:29:13]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:29:30]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:29:35]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:29:38]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:30:10]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:30:23]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:30:48]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:31:38]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:32:12]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@5023, id:23, }
+
+[Timestamp: 2023-10-05 15:32:41]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:subodhhumne0733@gmail.com, password:Subodh@501, id:23, }
+
+[Timestamp: 2023-10-05 15:54:06]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:lomduhaitu@gmail.com, password:Lomdu@1213, id:30, }
+
+[Timestamp: 2023-10-05 15:54:22]
+User <b>'admin'<\b> initiated an DELETE operation.Deleted a record from the <b>'login'<\b> table.
+<b>Data<\b>: { }
+
+[Timestamp: 2023-10-05 16:18:03]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>login<\b> table.
+<b>Data<\b>: { email:humnesubodh@gmail.com, password:Lomdu@121, id:34, }
+
+[Timestamp: 2023-10-22 07:16:07]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>customers<\b> table.
+<b>Data<\b>: { customer_id:2, customer_name:Jane Smith, email:jane.smith@example.comd, }
+
+[Timestamp: 2023-10-22 07:16:47]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>customers<\b> table.
+<b>Data<\b>: { customer_id:2, customer_name:Jane Smith, email:jane.smith@example.comd, }
+
+[Timestamp: 2023-10-22 07:26:09]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:102, order_date:2023-10-06, total_amount:75.25, customer_id:1, }
+
+[Timestamp: 2023-10-22 07:47:44]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:102, order_date:2023-10-06, total_amount:75.25, customer_id:2, }
+
+[Timestamp: 2023-10-22 07:47:46]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:102, order_date:2023-10-06, total_amount:75.25, customer_id:1, }
+
+[Timestamp: 2023-10-22 09:47:14]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:103, order_date:2023-10-07, total_amount:68.90, customer_id:2, }
+
+[Timestamp: 2023-10-22 09:47:45]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:1030, order_date:2023-10-07, total_amount:68.90, customer_id:2, }
+
+[Timestamp: 2023-10-22 09:47:47]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:103, order_date:2023-10-07, total_amount:68.90, customer_id:2, }
+
+[Timestamp: 2023-10-22 09:47:54]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:108, order_date:2023-10-07, total_amount:68.90, customer_id:2, }
+
+[Timestamp: 2023-10-22 16:17:02]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'customers'<\b> table.
+<b>Data<\b>: { '', '', '', }
+
+[Timestamp: 2023-10-22 16:17:18]
+User <b>'admin'<\b> initiated an DELETE operation.Deleted a record from the <b>'customers'<\b> table.
+<b>Data<\b>: { }
+
+[Timestamp: 2023-10-22 16:17:19]
+User <b>'admin'<\b> initiated an DELETE operation.Deleted a record from the <b>'customers'<\b> table.
+<b>Data<\b>: { }
+
+[Timestamp: 2023-10-22 16:17:49]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'customers'<\b> table.
+<b>Data<\b>: { '', '', '', }
+
+[Timestamp: 2023-10-22 16:28:39]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'customers'<\b> table.
+<b>Data<\b>: { '3', 'DGDFGD', 'DFGFDSG', }
+
+[Timestamp: 2023-10-29 12:16:03]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>id<\b> table.
+<b>Data<\b>: { id:156, username:Omkal, }
+
+[Timestamp: 2023-10-29 13:36:58]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>id<\b> table.
+<b>Data<\b>: { id:23, username:Subodh, }
+
+[Timestamp: 2023-10-29 13:38:51]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>id<\b> table.
+<b>Data<\b>: { id:5, username:Harshit, }
+
+[Timestamp: 2023-10-29 13:42:00]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>id<\b> table.
+<b>Data<\b>: { id:54, username:Harshit, }
+
+[Timestamp: 2023-11-03 15:47:21]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:1030, order_date:2023-10-07, total_amount:68.90, customer_id:3, }
+
+[Timestamp: 2023-11-03 15:48:06]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
+<b>Data<\b>: { order_id:1030, order_date:2023-10-07, total_amount:68.90, customer_id:3, }
+
