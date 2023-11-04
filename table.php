@@ -290,12 +290,21 @@ $tables = $mysqli->query($table_query);
                 } ?>
               </ul>
             </li>
-            <li class="nav-header">EXAMPLES</li>
+            <li class="nav-header">UTILITIES</li>
             <li class="nav-item">
               <a href="pages/calendar.html" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                   Calendar
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="logs.php" class="nav-link">
+              <i class="fa-solid fa-file-lines"></i>
+                <p>
+                  Logs
                   <span class="badge badge-info right">2</span>
                 </p>
               </a>

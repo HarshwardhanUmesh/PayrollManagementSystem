@@ -29,7 +29,7 @@ $tables = $mysqli->query($table_query);
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -267,13 +267,21 @@ $tables = $mysqli->query($table_query);
               }?>
               </ul>
             </li>
-            <li class="nav-header">EXAMPLES</li>
+            <li class="nav-header">UTILITIES</li>
             <li class="nav-item">
               <a href="pages/calendar.html" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                   Calendar
                   <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="logs.php" class="nav-link">
+              <i class="nav-icon fa-solid fa-file-lines"></i>
+                <p>
+                  Logs
                 </p>
               </a>
             </li>
