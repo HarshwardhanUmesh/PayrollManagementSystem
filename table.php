@@ -252,10 +252,10 @@ $tables = $mysqli->query($table_query);
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item menu-open">
+            <li class="nav-item">
               <!-- <a href="#" class="nav-link active"> -->
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
-              <a href="./index.html" class="nav-link active">
+              <a href="index.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Dashboard</p>
               </a>
@@ -267,7 +267,7 @@ $tables = $mysqli->query($table_query);
               <p>Tables</p>
             </a>
           </li> -->
-            <li class="nav-item">
+            <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
@@ -275,13 +275,17 @@ $tables = $mysqli->query($table_query);
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview" style="display: none;">
+              <ul class="nav nav-treeview" style="display: block;">
                 <?php
                 $row = 0;
                 while ($table = $tables->fetch_array()) {
                 ?>
                   <li class="nav-item">
+                    <?php if($_GET["table"] == $table[0]){?>
+                    <a href="table.php?table=<?php echo $table[0] ?>" class="nav-link active">
+                    <?php }else{?>
                     <a href="table.php?table=<?php echo $table[0] ?>" class="nav-link">
+                    <?php }?>
                       <i class="far fa-circle nav-icon"></i>
                       <p><?php echo $table[0] ?></p>
                     </a>
@@ -302,10 +306,10 @@ $tables = $mysqli->query($table_query);
             </li>
             <li class="nav-item">
               <a href="logs.php" class="nav-link">
-              <i class="fa-solid fa-file-lines"></i>
+              <i class="nav-icon fa-solid fa-file-lines"></i>
                 <p>
                   Logs
-                  <span class="badge badge-info right">2</span>
+                  <!-- <span class="badge badge-info right"></span> -->
                 </p>
               </a>
             </li>
