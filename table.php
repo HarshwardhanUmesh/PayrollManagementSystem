@@ -46,9 +46,32 @@ $tables = $mysqli->query($table_query);
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <style>
+    div.alert {
+      width: 25%;
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    .pen {
+      display: none;
+      width: 20px;
+      position: absolute;
+      right: 10px;
+    }
+
+    td:hover>.pen {
+      display: inline;
+    }
+
+    td {
+      position: relative;
+    }
+  </style>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="sidebar-mini">
   <div class="wrapper">
 
     <!-- Preloader -->
@@ -197,7 +220,7 @@ $tables = $mysqli->query($table_query);
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      
+
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -253,26 +276,35 @@ $tables = $mysqli->query($table_query);
                 </p>
               </a>
               <ul class="nav nav-treeview" style="display: none;">
-              <?php
-              $row = 0;
-              while ($table = $tables->fetch_array()) {
-              ?>
-                <li class="nav-item">
-                  <a href="table.php?table=<?php echo $table[0] ?>" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p><?php echo $table[0] ?></p>
-                  </a>
-                </li>
-              <?php
-              }?>
+                <?php
+                $row = 0;
+                while ($table = $tables->fetch_array()) {
+                ?>
+                  <li class="nav-item">
+                    <a href="table.php?table=<?php echo $table[0] ?>" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p><?php echo $table[0] ?></p>
+                    </a>
+                  </li>
+                <?php
+                } ?>
               </ul>
             </li>
-            <li class="nav-header">EXAMPLES</li>
+            <li class="nav-header">UTILITIES</li>
             <li class="nav-item">
               <a href="pages/calendar.html" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                   Calendar
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="logs.php" class="nav-link">
+              <i class="fa-solid fa-file-lines"></i>
+                <p>
+                  Logs
                   <span class="badge badge-info right">2</span>
                 </p>
               </a>
@@ -286,216 +318,154 @@ $tables = $mysqli->query($table_query);
       <!-- /.sidebar -->
     </aside>
 
-    Content Wrapper. Contains page content
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
+
       <!-- /.content-header -->
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | DataTables</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <style>
-        div.alert {
-            width: 25%;
-            position: fixed;
-            right: 10px;
-            bottom: 10px;
-        }
-
-        .pen {
-            display: none;
-            width: 20px;
-            position: absolute;
-            right: 10px;
-        }
-
-        td:hover>.pen {
-            display: inline;
-        }
-
-        td {
-            position: relative;
-        }
-    </style>
-</head>
-
-<body class="hold-transition sidebar-mini">
-
-    <div class="wrapper">
-
-        <div class="content-wrapper mx-0">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>DataTables</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="./tablelist.php">DataTables</a></li>
-                                <li class="breadcrumb-item active"><?php echo $tablename = $_GET["table"]; ?></li>
-                            </ol>
-                        </div>
-                    </div>
-                </div><!-- /.container-fluid -->
-            </section>
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>DataTables</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="./tablelist.php">DataTables</a></li>
+                  <li class="breadcrumb-item active"><?php echo $tablename = $_GET["table"]; ?></li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+        <?php
+        if (isset($_GET["table"])) {
+        ?>
+          <!-- Main content -->
+          <section class="content">
             <?php
-            if (isset($_GET["table"])) {
+            $tablename = $_GET["table"];
+            $column_query = " DESC $tablename";
+            $row_query = " SELECT * FROM $tablename";
+            $foreign_col = [];
+            $db = "test";
+            $q = "select table_name,column_name,referenced_table_name,referenced_column_name from information_schema.key_column_usage where referenced_table_name is not null and table_schema = 'test' and table_name = " . "'$tablename'";
+            $res = $mysqli->query($q);
+            if (!$res) {
+              die("query failed" . $mysqli->error);
+            } else {
+              while ($x = $res->fetch_assoc()) {
+                array_push($foreign_col, $x['column_name']);
+              }
+            }
+            $columns = $mysqli->query($column_query); //col table 
+            $rows = $mysqli->query($row_query); //row table 
+            $col = [];
+            $col_type = [];
+            $col_key = [];
+            while ($x = $columns->fetch_assoc()) {
+              array_push($col, $x['Field']);
+              array_push($col_type, $x['Type']);
+              if (in_array($x["Field"], $foreign_col)) {
+                array_push($col_key, "ForeignKey");
+              } elseif ($x["Key"]) {
+                array_push($col_key, "PrimaryKey");
+              } else {
+                array_push($col_key, "None");
+              }
+            }
+
             ?>
-                <!-- Main content -->
-                <section class="content">
+
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="<?php echo $tablename . ' table table-bordered table-striped example1 ' ?> ">
+                  <thead>
+                    <tr>
+                      <?php
+                      foreach ($col as $x) {
+                      ?>
+                        <th><?php echo $x; ?></th>
+                      <?php
+                      }
+                      ?>
+                      <th>operation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                     <?php
-                    $tablename = $_GET["table"];
-                    $column_query = " DESC $tablename";
-                    $row_query = " SELECT * FROM $tablename";
-                    $foreign_col = [];
-                    $db = "test";
-                    $q = "select table_name,column_name,referenced_table_name,referenced_column_name from information_schema.key_column_usage where referenced_table_name is not null and table_schema = 'test' and table_name = " . "'$tablename'";
-                    $res = $mysqli->query($q);
-                    if (!$res) {
-                        die("query failed" . $mysqli->error);
-                    } else {
-                        while ($x = $res->fetch_assoc()) {
-                            array_push($foreign_col, $x['column_name']);
-                        }
-                    }
-                    $columns = $mysqli->query($column_query); //col table 
-                    $rows = $mysqli->query($row_query); //row table 
-                    $col = [];
-                    $col_type = [];
-                    $col_key = [];
-                    while ($x = $columns->fetch_assoc()) {
-                        array_push($col, $x['Field']);
-                        array_push($col_type, $x['Type']);
-                        if (in_array($x["Field"],$foreign_col)) {
-                            array_push($col_key, "ForeignKey");
-                        }elseif($x["Key"]){
-                            array_push($col_key, "PrimaryKey");
-                        } else {
-                            array_push($col_key, "None");
-                        }
-                    }
-
+                    $row_index = 0;
+                    while ($row = $rows->fetch_assoc()) {
                     ?>
+                      <tr class="<?php echo $row_index; ?>">
+                        <!-- columns per row -->
+                        <?php
+                        $col_index = 0;
+                        foreach ($col as $x) {
 
+                        ?>
+                          <td class="v <?php echo $tablename . " " . $x . " " . $col_type[$col_index] . " " . $col_key[$col_index]; ?>"><?php echo $row[$x] . '<img class="pen" src=".\src\images\edit.png" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg>'; ?></td>
+                        <?php
+                          $col_index++;
+                        }
+                        ?>
+                        <td class="delete"><svg class="<?php echo $tablename ?> delete" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                          </svg>
+                          <!-- <button class="Vock">h</button> -->
+                        </td>
+                      </tr>
+                    <?php
+                      $row_index++;
+                    }
+                    ?>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <?php
+                      foreach ($col as $x) {
+                      ?>
+                        <th><?php echo $x; ?></th>
+                      <?php
+                      }
+                      ?>
+                      <th class="col-1">operation</th>
+                    </tr>
+                  </tfoot>
+                </table>
+                <button class="create">create</button>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="<?php echo $tablename . ' table table-bordered table-striped example1 ' ?> ">
-                                <thead>
-                                    <tr>
-                                        <?php
-                                        foreach ($col as $x) {
-                                        ?>
-                                            <th><?php echo $x; ?></th>
-                                        <?php
-                                        }
-                                        ?>
-                                        <th>operation</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $row_index = 0;
-                                    while ($row = $rows->fetch_assoc()) {
-                                    ?>
-                                        <tr class="<?php echo $row_index; ?>">
-                                            <!-- columns per row -->
-                                            <?php
-                                            $col_index = 0;
-                                            foreach ($col as $x) {
-
-                                            ?>
-                                                <td class="v <?php echo $tablename . " " . $x . " " . $col_type[$col_index] . " " . $col_key[$col_index]; ?>"><?php echo $row[$x] . '<img class="pen" src=".\src\images\edit.png" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg>'; ?></td>
-                                            <?php
-                                                $col_index++;
-                                            }
-                                            ?>
-                                            <td class="delete"><svg class="<?php echo $tablename ?> delete" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
-                                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
-                                                </svg>
-                                                <!-- <button class="Vock">h</button> -->
-                                            </td>
-                                        </tr>
-                                    <?php
-                                        $row_index++;
-                                    }
-                                    ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <?php
-                                        foreach ($col as $x) {
-                                        ?>
-                                            <th><?php echo $x; ?></th>
-                                        <?php
-                                        }
-                                        ?>
-                                        <th class="col-1">operation</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <button class="create">create</button>
-
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </section>
-        </div>
-        <!-- /.col -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+      </div>
+      <!-- /.col -->
     </div>
     <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-    </section>
+  </div>
+  <!-- /.container-fluid -->
+  </section>
 <?php
-            } else {
-                echo "NOT found";
-            }
+        } else {
+          echo "NOT found";
+        }
 ?>
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+  <!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
 </div>
@@ -522,56 +492,56 @@ $tables = $mysqli->query($table_query);
 <script src="./dist/js/adminlte.min.js"></script>
 <!-- Page specific script -->
 <script>
-    $(function() {
-        $(".example1").each((index, element) => {
-            console.log(element)
-            $(element).DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo($(element).parent().parent().parent().find('.col-sm-12.col-md-6:first-child'));
-        });
+  $(function() {
+    $(".example1").each((index, element) => {
+      console.log(element)
+      $(element).DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo($(element).parent().parent().parent().find('.col-sm-12.col-md-6:first-child'));
     });
+  });
 </script>
 <script src="src/js/delete.js"></script>
 <!-- <script src="src/js/insert.js"></script> -->
 <!-- <script src="src/js/update.js"></script> -->
 <script src="src/js/tableList.js"></script>
 <script>
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    window.onload = function() {
-        if (sessionStorage.getItem("insert")) {
-            console.log("Record inserted successfully.")
-            sessionStorage.clear()
-            $("body").append('<div class="alert alert-primary" role="alert">Record inserted successfully.</div>')
-            sleep(2000);
-            $(".alert").animate({
-                    opacity: 0
-                },
-                5000,
-                function() {
-                    $(".alert.alert-primary").hide();
-                }
-            );
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  window.onload = function() {
+    if (sessionStorage.getItem("insert")) {
+      console.log("Record inserted successfully.")
+      sessionStorage.clear()
+      $("body").append('<div class="alert alert-primary" role="alert">Record inserted successfully.</div>')
+      sleep(2000);
+      $(".alert").animate({
+          opacity: 0
+        },
+        5000,
+        function() {
+          $(".alert.alert-primary").hide();
         }
-        if (sessionStorage.getItem("delete")) {
-            console.log("Record deleted successfully.")
-            $("body").append('<div class="alert alert-primary" role="alert">Record deleted successfully.</div>')
-            sessionStorage.clear()
-            sleep(2000);
-            $(".alert").animate({
-                    opacity: 0
-                },
-                5000,
-                function() {
-                    $(".alert.alert-primary").hide();
-                }
-            );
-        }
+      );
     }
+    if (sessionStorage.getItem("delete")) {
+      console.log("Record deleted successfully.")
+      $("body").append('<div class="alert alert-primary" role="alert">Record deleted successfully.</div>')
+      sessionStorage.clear()
+      sleep(2000);
+      $(".alert").animate({
+          opacity: 0
+        },
+        5000,
+        function() {
+          $(".alert.alert-primary").hide();
+        }
+      );
+    }
+  }
 </script>
 <script>
 
