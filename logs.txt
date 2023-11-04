@@ -146,3 +146,19 @@ User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>o
 User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>orders<\b> table.
 <b>Data<\b>: { order_id:1030, order_date:2023-10-07, total_amount:68.90, customer_id:3, }
 
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        for(int i=1;i<prices.length;i++){
+            // for(int j=i;j<prices.length;j++){
+            //   int profit = prices[j]-prices[i];
+            //    if(profit>maxProfit) maxProfit = profit;
+            // }
+            for(int j = 0;j<i;j++){
+                int profit = prices[j]-prices[i];
+               if(profit>maxProfit) maxProfit = profit;
+}
+}
+return maxProfit;
+}
+}
