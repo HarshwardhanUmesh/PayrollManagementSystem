@@ -1,26 +1,32 @@
 <?php
-$user = 'root';
-$password = '';
-$database = 'test';
-$servername = 'localhost:3306';
-$mysqli = new mysqli(
-    $servername,
-    $user,
-    $password,
-    $database
-);
+// $user = 'root';
+// $password = '';
+// $database = 'test';
+// $servername = 'localhost:3306';
+// $mysqli = new mysqli(
+//     $servername,
+//     $user,
+//     $password,
+//     $database
+// );
 
-if ($mysqli->connect_error) {
-    die('Connect Error (' .
-        $mysqli->connect_errno . ') ' .
-        $mysqli->connect_error);
+// if ($mysqli->connect_error) {
+//     die('Connect Error (' .
+//         $mysqli->connect_errno . ') ' .
+//         $mysqli->connect_error);
+// }
+$mysqli = mysqli_init();
+mysqli_ssl_set($mysqli,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_real_connect($mysqli, 'dbms.mysql.database.azure.com', 'subodh', 'Lomdu@502', 'payrollmanagement', 3306, MYSQLI_CLIENT_SSL);
+if (mysqli_connect_error()) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ?>
 <?php
 $table = $_POST["table"];
 $attribute = $_POST["attribute"];
 $value = $_POST["value"];
-$q = "USE test;";
+$q = "USE payrollmanagement;";
 $res = $mysqli->query($q);
 $query = "DELETE FROM " . $table . " WHERE ";
 for ($i = 0; $i < sizeof($attribute); $i++) {
@@ -29,7 +35,6 @@ for ($i = 0; $i < sizeof($attribute); $i++) {
         $query .= ($attribute[$i] . "=" . "'$value[$i]'" . ";");
     }
 }
-echo $query;
 $res = $mysqli->query($query);
 if (!$res) {
     die("query failed" . $mysqli->error);

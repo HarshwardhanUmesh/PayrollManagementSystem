@@ -1,17 +1,25 @@
 <?php
-$user = 'root';
-$password = '';
-$database = 'test';
-$servername = 'localhost:3306';
-$mysqli = new mysqli(
-  $servername,
-  $user,
-  $password,
-  $database
-);
+// $user = 'root';
+// $password = '';
+// $database = 'test';
+// $servername = 'localhost:3306';
+// $mysqli = new mysqli(
+//     $servername,
+//     $user,
+//     $password,
+//     $database
+// );
 
-if ($mysqli->connect_error) {
-  die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+// if ($mysqli->connect_error) {
+//     die('Connect Error (' .
+//         $mysqli->connect_errno . ') ' .
+//         $mysqli->connect_error);
+// }
+$mysqli = mysqli_init();
+mysqli_ssl_set($mysqli,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_real_connect($mysqli, 'dbms.mysql.database.azure.com', 'subodh', 'Lomdu@502', 'payrollmanagement', 3306, MYSQLI_CLIENT_SSL);
+if (mysqli_connect_error()) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
 $table_query = "show tables;";
@@ -354,14 +362,14 @@ $tables = $mysqli->query($table_query);
             $column_query = " DESC $tablename";
             $row_query = " SELECT * FROM $tablename";
             $foreign_col = [];
-            $db = "test";
-            $q = "select table_name,column_name,referenced_table_name,referenced_column_name from information_schema.key_column_usage where referenced_table_name is not null and table_schema = 'test' and table_name = " . "'$tablename'";
+            $db = "payrollmanagement";
+            $q = "select table_name,column_name,referenced_table_name,referenced_column_name from information_schema.key_column_usage where referenced_table_name is not null and table_schema = 'payrollmanagement' and table_name = " . "'$tablename'";
             $res = $mysqli->query($q);
             if (!$res) {
               die("query failed" . $mysqli->error);
             } else {
               while ($x = $res->fetch_assoc()) {
-                array_push($foreign_col, $x['column_name']);
+                array_push($foreign_col, $x['COLUMN_NAME']);
               }
             }
             $columns = $mysqli->query($column_query); //col table 
@@ -386,7 +394,7 @@ $tables = $mysqli->query($table_query);
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">DataTable</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -536,6 +544,20 @@ $tables = $mysqli->query($table_query);
       console.log("Record deleted successfully.")
       $("body").append('<div class="alert alert-primary" role="alert">Record deleted successfully.</div>')
       sessionStorage.clear()
+      sleep(2000);
+      $(".alert").animate({
+          opacity: 0
+        },
+        5000,
+        function() {
+          $(".alert.alert-primary").hide();
+        }
+      );
+    }
+    if (sessionStorage.getItem("update")) {
+      console.log("Record updated successfully.")
+      sessionStorage.clear()
+      $("body").append('<div class="alert alert-primary" role="alert">Record updated successfully.</div>')
       sleep(2000);
       $(".alert").animate({
           opacity: 0

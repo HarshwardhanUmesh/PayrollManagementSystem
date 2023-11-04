@@ -1,5 +1,5 @@
 $(".delete").click((event) => {
-    sessionStorage.setItem("delete", "TRUE");
+    // sessionStorage.setItem("delete", "TRUE");
     event.stopPropagation();
     try{
     if($(event.target).attr("class").split(" ")[1] != "delete"){
@@ -23,7 +23,7 @@ $(".delete").click((event) => {
     $.ajax({
         async: true,
         type: "POST",
-        url: "http://localhost/tables/delete.php",
+        url: "./delete.php",
         data: {
             "table": table,
             "attribute": attri,
@@ -31,6 +31,23 @@ $(".delete").click((event) => {
         },
         success: function (data) {
             console.log("success " + data);
+            if (data != 1) {
+                $("body").append('<div class="alert alert-danger" role="alert">Error : Failed to Delete.</div>')
+                sessionStorage.clear()
+                sleep(2000);
+                $(".alert").animate({
+                  opacity: 0
+                },
+                  5000,
+                  function () {
+                    $elementToDisappear.empty();
+                  }
+                );
+              } else {
+                sessionStorage.clear();
+                sessionStorage.setItem("delete", "TRUE");
+                location.reload();
+              }
         },
         error:
             function (data) {
@@ -38,7 +55,9 @@ $(".delete").click((event) => {
                 console.log(data);
             }
     })
-    // location.reload();
+    sessionStorage.clear();
+    sessionStorage.setItem("delete", "TRUE");
+    location.reload();
     }
 } catch (error) {
     console.log(error)

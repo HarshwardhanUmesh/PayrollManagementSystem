@@ -161,4 +161,31 @@ class Solution {
 }
 return maxProfit;
 }
-}
+}[Timestamp: 2023-11-04 19:52:33]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'customers'<\b> table.
+<b>Data<\b>: { '7', 'dsfa', 'sdf', }
+
+[Timestamp: 2023-11-04 19:52:55]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'customers'<\b> table.
+<b>Data<\b>: { '8', 'sdf', 'sdf', }
+
+[Timestamp: 2023-11-04 19:55:12]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'customers'<\b> table.
+<b>Data<\b>: { '7', 'dfgdfg', 'dfg', }
+
+[Timestamp: 2023-11-04 20:56:36]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'employee'<\b> table.
+<b>Data<\b>: { '111', 'Harshit', 'Inani', '2020-05-06', 'Pune', 'Maharashtra', }
+
+[Timestamp: 2023-11-04 20:58:11]
+User <b>'admin'<\b> initiated an INSERT operation.Inserted the record in the <b>'employee'<\b> table.
+<b>Data<\b>: { '112', 'Sanjana', 'Inani', '2019-04-15', 'Pune', 'Maharashtra', }
+
+[Timestamp: 2023-11-04 21:08:18]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>employee<\b> table.
+<b>Data<\b>: { Employee_Id:106, First_Name:Rasagnya, Last_Name:Reddy, Hire_Date:2018-07-25, City:Mysore, State:Karnataka, }
+
+[Timestamp: 2023-11-04 21:08:35]
+User <b>'admin'<\b> initiated an UPDATE operation.Updated the record in the <b>employee<\b> table.
+<b>Data<\b>: { Employee_Id:105, First_Name:Anugraha, Last_Name:Varkey, Hire_Date:2017-08-16, City:Indore, State:Madhya Pradesh, }
+
