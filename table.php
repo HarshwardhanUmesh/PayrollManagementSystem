@@ -510,8 +510,9 @@ $tables = $mysqli->query($table_query);
 </script>
 <script src="src/js/delete.js"></script>
 <!-- <script src="src/js/insert.js"></script> -->
-<!-- <script src="src/js/update.js"></script> -->
+<script src="src/js/insertupdate.js"></script>
 <script src="src/js/tableList.js"></script>
+<
 <script>
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
